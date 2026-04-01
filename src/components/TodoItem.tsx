@@ -12,13 +12,13 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
   return (
-    <li style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+    <li className="todo-item">
       <input
         type="checkbox"
         checked={todo.completed}
         onChange={() => onToggle(todo.id)}
       />
-      <span>{todo.text}</span>
+      <span className={todo.completed ? 'completed' : ''}>{todo.text}</span>
       <button onClick={() => onDelete(todo.id)}>Delete</button>
     </li>
   );
