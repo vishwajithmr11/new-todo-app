@@ -37,9 +37,7 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Todo App</h1>
-      <AddTodoForm onAdd={addTodo} />
+    <div className=\"App\">\n      <h1>Todo App</h1>\n      <AddTodoForm onAdd={addTodo} />
       <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
     </div>
   );
