@@ -5,25 +5,25 @@ interface AddTodoFormProps {
 }
 
 const AddTodoForm: React.FC<AddTodoFormProps> = ({ onAdd }) => {
-  const [newTodo, setNewTodo] = useState('');
+  const [inputText, setInputText] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newTodo.trim() !== '') {
-      onAdd(newTodo);
-      setNewTodo('');
+    if (inputText.trim()) {
+      onAdd(inputText);
+      setInputText('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="add-todo-form">
       <input
         type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="Add new todo"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+        placeholder="What needs to be done?"
       />
-      <button type="submit">Add Todo</button>
+      <button type="submit">Add</button>
     </form>
   );
 };
